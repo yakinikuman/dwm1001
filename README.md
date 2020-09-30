@@ -115,7 +115,7 @@ NOTE: Sometimes you might get error messages from the above configuration proced
 
 OPTIONAL: If you are developing on a Linux or OSX system, then you may use the script `configure.sh`, which does the same operation.
 
-And we actually build or firmware with `make`:
+And we actually build our firmware with `make`:
 ```
     cd build
     make
