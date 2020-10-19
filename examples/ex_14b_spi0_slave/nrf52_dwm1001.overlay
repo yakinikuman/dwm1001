@@ -7,9 +7,18 @@
 &spi0 {
 	compatible = "nordic,nrf-spis";
 	status = "okay";
-	mosi-pin = <12>;		// M6	(3)
-	miso-pin = <27>;		// M13	(4)
-	sck-pin  = <23>;		// M16	(7)
-	csn-pin  = <13>;		// M17	(8)
+	// The <#> are [N].P0# from DWM1001 Datasheet.pdf
+	// The M# are DWM1001 pin numbers (edge pinout, from 1-34)
+	// The (#) are J7 header numbers
+	//mosi-pin = <12>;		// M6	(3)
+	//miso-pin = <27>;		// M13	(4)
+	//sck-pin  = <23>;		// M16	(7)
+	//csn-pin  = <13>;		// M17	(8)
 	def-char = <0xFF>;
+	
+	// re-map to PANS pins (for no good reason)
+	mosi-pin = <6>;			// M27
+	miso-pin = <7>;			// M26
+	sck-pin  = <4>;			// M28
+	csn-pin  = <3>;			// M29
 };

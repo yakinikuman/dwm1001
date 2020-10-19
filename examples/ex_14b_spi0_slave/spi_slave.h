@@ -13,7 +13,7 @@
 #define SPI_SLAVE_GPIO_IRQ_PIN  		DT_ALIAS_SPI_0_CSN_PIN
 
 /* Needs to be aligned with the SPI master buffer size */
-#define SPI_MAX_MSG_LEN         255
+#define SPI_MAX_MSG_LEN         4096
 
 typedef struct spi_slave_msg {
 	u32_t       length;

@@ -106,7 +106,7 @@ void spi_slave_init(void)
     memset(&spi_cfg, 0, sizeof(spi_cfg));
 
     spi_cfg.operation = SPI_WORD_SET(8) | SPI_OP_MODE_SLAVE;
-    spi_cfg.frequency = 1000000;
+    spi_cfg.frequency = 500000;
 
     printk("%s: slave config @ %p:"
             " wordsize(%u), mode(%u/%u/%u)\n", __func__, &spi_cfg,
@@ -126,10 +126,12 @@ void spi_slave_init(void)
     while (1) {
         spi_slave_read(spi, &spi_cfg, &rx_data);
 
-        if (rx_data == 0x1234) {
-            spi_slave_write(spi, &spi_cfg, &tx_data);
-        }
-        printk("Received: 0x%04X -- %s\n", rx_data,
-            (rx_data == 0x1234) ? "correct" : "wrong");
+        tx_data = rx_data + 1;
+        spi_slave_write(spi, &spi_cfg, &tx_data);
+
+        //printk("Received: 0x%04X -- %s\n", rx_data,
+        //                    (rx_data == 0x1234) ? "correct" : "wrong");
+        printk("Received: 0x%04X\n", rx_data);
+
     }
 }
