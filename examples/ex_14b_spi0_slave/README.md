@@ -12,6 +12,7 @@ Currently, this example does not implement a interrupt line to the SPI Master ho
 
 The choice using of "SPI_0" is due to "SPI-1" being used for DWM1000 communications. Also note that SPI_0 and I2C_0 can not operated at the same time, as the share a common serial controller on the nRF52 SoC. 
 
+Verified working with baseline Zephyr branch v2.4.0.
 
 ## Hardware Setup
 
@@ -63,11 +64,11 @@ Received 0x3457 (13399)
 **Slave Side (DWM1001)**</u>
 
 ```
-*** Booting Zephyr OS build zephyr-v2.2.1  ***
+*** Booting Zephyr OS build zephyr-v2.4.0  ***
 spi_slave_thread
 SPI Slave example application
-rx_data buffer at 0x20000bd0
-spi_slave_init: slave config @ 0x20000bd4: wordsize(8), mode(0/0/0)
+rx_data buffer at 0x20000e08
+spi_slave_init: slave config @ 0x20000e0c: wordsize(8), mode(0/0/0)
 spi_slave_init: SPI pin config -- MOSI(P0.6), MISO(P0.7), SCK(P0.4), CS(P0.3)
 Received: 0x1234
 Received: 0x2345
